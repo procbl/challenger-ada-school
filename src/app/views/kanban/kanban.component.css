@@ -1,0 +1,28 @@
+.addButton {
+  padding: 17px 0px 17px 0px;
+  display: flex;
+  justify-content: right;
+}
+
+.addButton button {
+  background: rgba(255, 253, 253, 0.945);
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stage {
+  width: 33%;
+}
+
+.background-page {
+  min-height: 530px;
+  background-color: rgba(99, 89, 89, 0.048);
+}
+
+h1 {
+  text-align: center;
+}

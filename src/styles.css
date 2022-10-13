@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  min-height: auto;
+}
+
+.mat-grid-tile .mat-figure {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  min-width: 300px;
+  flex-grow: 1;
+  overflow: auto;
+}

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Adicionar Card</h1>
+
+<form [formGroup]="form">
+  <div class="form-group">
+    <p>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label for="titulo">Título</mat-label>
+        <input
+          matInput
+          formControlName="titulo"
+          id="titulo"
+          name="titulo"
+          placeholder="Título"
+          required="true"
+          maxlength="30"
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" color="accent">
+        <mat-label for="conteudo">Conteúdo</mat-label>
+        <textarea
+          matInput
+          cdkTextareaAutosize
+          formControlName="conteudo"
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+          maxlength="500"
+          required="true"
+        ></textarea>
+      </mat-form-field>
+    </p>
+  </div>
+  <div class="form-group submit-button buttons">
+    <button
+      mat-flat-button
+      color="primary"
+      disabled="{{ !form.valid }}"
+      (click)="save()"
+    >
+      {{ action === "add" ? "Adicionar" : "Atualizar" }}
+    </button>
+    <button mat-flat-button color="basic" (click)="close()">Cancelar</button>
+  </div>
+</form>

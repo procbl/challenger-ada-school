@@ -1,0 +1,21 @@
+<mat-card class="card">
+  <h1>{{ titulo }}</h1>
+  <p>
+    {{ conteudo }}
+  </p>
+
+  <div class="actions">
+    <button mat-button (click)="backStep.emit()" *ngIf="lista !== 'ToDo'">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <button mat-button (click)="delete.emit()">
+      <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button mat-button (click)="update.emit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-button (click)="nextStep.emit()" *ngIf="lista !== 'Done'">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</mat-card>

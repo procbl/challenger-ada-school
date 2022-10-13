@@ -1,0 +1,13 @@
+.card {
+  position: relative;
+  margin-bottom: 15px;
+  min-width: 255px;
+}
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button {
+  width: 25%;
+}
