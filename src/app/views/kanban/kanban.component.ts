@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Card } from 'src/app/models/card.model';
 import { CardsService } from 'src/app/services/cards.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -10,16 +10,16 @@ import { AddCardComponent } from 'src/app/components/modals/add-card/add-card.co
   styleUrls: ['./kanban.component.css'],
 })
 export class KanbanComponent implements OnInit {
-  token: string = undefined;
   cardList: Card[] = [];
   steps = ['ToDo', 'Doing', 'Done'];
 
   constructor(private service: CardsService, public dialog: MatDialog) {}
 
-  ngOnInit(): void {
-    this.service.getToken().subscribe((token) => {
-      this.token = token;
-      this.getCards();
+  async ngOnInit(): Promise<void> {
+    await this.service.getToken().then((resp) => {
+      if (resp) {
+        this.getCards();
+      }
     });
   }
 
@@ -39,27 +39,12 @@ export class KanbanComponent implements OnInit {
   }
 
   addCard(card: Card) {
-    this.service.addCard(this.token, card).subscribe((resp) => {
+    this.service.addCard(card).subscribe((resp) => {
       if (resp) {
         this.getCards();
       }
     });
   }
-  /* addCard() {
-    const dialogRef = this.dialog.open(AddCardComponent, {
-      data: {
-        action: 'add',
-        card: {},
-      },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.service.addCard(this.token, result).subscribe((resp) => {
-        if (resp) {
-          this.getCards();
-        }
-      });
-    });
-  } */
 
   openDialog(action: string, card?: Card) {
     const dialogRef = this.dialog.open(AddCardComponent, {
@@ -78,30 +63,15 @@ export class KanbanComponent implements OnInit {
   }
 
   updateCard(card: Card) {
-    this.service.updateCard(this.token, card).subscribe((resp) => {
+    this.service.updateCard(card).subscribe((resp) => {
       if (resp) {
         this.getCards();
       }
     });
   }
-  /*   updateCard(card: Card) {
-    const dialogRef = this.dialog.open(AddCardComponent, {
-      data: {
-        action: 'update',
-        card: card,
-      },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      this.service.updateCard(this.token, result).subscribe((resp) => {
-        if (resp) {
-          this.getCards();
-        }
-      });
-    });
-  } */
 
   deleteCard(id: string) {
-    this.service.deleteCard(this.token, id).subscribe((resp) => {
+    this.service.deleteCard(id).subscribe((resp) => {
       if (resp) {
         this.getCards();
       }
@@ -109,7 +79,7 @@ export class KanbanComponent implements OnInit {
   }
 
   getCards() {
-    this.service.getCards(this.token).subscribe((cards) => {
+    this.service.getCards().subscribe((cards) => {
       this.cardList = cards;
     });
   }

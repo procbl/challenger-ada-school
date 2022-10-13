@@ -1,5 +1,5 @@
 header {
-  background: rgb(245, 179, 36);
+  background: rgb(1 46 179 / 78%);
   border-bottom: 2px solid #000000;
   align-items: center;
   display: flex;
@@ -13,26 +13,26 @@ header #card-usuario {
   display: flex;
 }
 header #card-usuario b {
-  color: #333;
+  color: #000000;
   text-decoration: none;
   margin-right: 5px;
   padding: 14px 15px 0px 0px;
 }
 header #card-usuario p {
-  color: #a08979;
+  color: #000000;
 }
 header #card-usuario #nome {
   font-size: small;
 }
 header #card-usuario #linha-vertical {
   height: 45px;
-  border-right: 1px solid #333;
+  border-right: 1px solid #000000;
 }
 header #card-usuario #avatar {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  background-color: #333;
+  background-color: #000000;
   margin: 5px 5px 0px 15px;
 }
 header #card-usuario #usuario {

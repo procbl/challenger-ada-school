@@ -15,3 +15,24 @@
   flex-grow: 1;
   overflow: auto;
 }
+
+.mat-form-field.mat-focused .mat-form-field-label .mat-accent {
+  color: rgb(1 46 179 / 78%) !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label .mat-accent {
+  color: rgb(1 46 179 / 78%) !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: rgb(1 46 179 / 78%) !important;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: rgb(1 46 179 / 78%) !important;
+}
+
+.mat-form-field-appearance-outline.mat-focused.mat-accent
+  .mat-form-field-outline-thick {
+  color: rgb(1 46 179 / 78%) !important;
+}

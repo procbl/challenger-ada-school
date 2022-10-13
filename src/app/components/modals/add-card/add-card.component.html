@@ -1,4 +1,6 @@
-<h1 mat-dialog-title>Adicionar Card</h1>
+<h1 mat-dialog-title>
+  {{ action === "add" ? "Adicionar" : "Atualizar" }} Card
+</h1>
 
 <form [formGroup]="form">
   <div class="form-group">
