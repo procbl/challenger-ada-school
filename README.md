@@ -3,7 +3,6 @@
 Para rodá-la, faça:
 
 ```console
-> cd FRONT
 > npm install
 > npm run start
 ```
